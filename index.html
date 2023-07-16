@@ -33,22 +33,18 @@
           <li class="list-group-item">Item 2</li>
           <li class="list-group-item">Item 3</li>
           <li class="list-group-item">Item 4</li>
+          <li class="newlist">Item 5</li>
         </ul>
       </div>
     </div>
     <script>
-      const items = document.getElementsByClassName("list-group-item");
-      items[2].style.backgroundColor = "green";
+      let listByClass = document.getElementsByClassName("newlist");
+      listByClass[0].style.listStyleType = "none";
 
-      for (let i = 0; i < items.length; i++) {
-        items[i].style.fontWeight = "bold";
-        items[i].style.color = "orange";
+      let listByTag = document.getElementsByTagName("li");
+      for (let i = 0; i < listByTag.length; i++) {
+        listByTag[i].style.color = "red";
       }
-      const header = document.getElementById("main-header");
-      header.style.borderBottom = "solid 3px #000";
-
-      const item = document.querySelector(".title");
-      item.style.fontWeight = "bold";
     </script>
   </body>
 </html>
