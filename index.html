@@ -33,17 +33,26 @@
           <li class="list-group-item">Item 2</li>
           <li class="list-group-item">Item 3</li>
           <li class="list-group-item">Item 4</li>
-          <li class="newlist">Item 5</li>
         </ul>
       </div>
     </div>
     <script>
-      let listByClass = document.getElementsByClassName("newlist");
-      listByClass[0].style.listStyleType = "none";
+      // using querySelectors
+      let list2 = document.querySelector(".list-group-item:nth-child(2)");
+      list2.style.backgroundColor = "green";
+      let list3 = document.querySelector(".list-group-item:nth-child(3)");
+      list3.style.display = "none";
 
-      let listByTag = document.getElementsByTagName("li");
-      for (let i = 0; i < listByTag.length; i++) {
-        listByTag[i].style.color = "red";
+      // using querySelectorsAll
+      let list2ByQAll = document.querySelectorAll(
+        ".list-group-item:nth-child(2)"
+      );
+      list2ByQAll[0].style.color = "green"; // for one 1 element also queryselectorAll returns array
+      let listItems = document.querySelectorAll(
+        '.list-group-item:nth-child("odd")'
+      );
+      for (let i = 0; i < listItems.length; i++) {
+        listItems[i].style.backgroundColor = "green";
       }
     </script>
   </body>
