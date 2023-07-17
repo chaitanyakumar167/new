@@ -37,23 +37,65 @@
       </div>
     </div>
     <script>
-      // using querySelectors
-      let list2 = document.querySelector(".list-group-item:nth-child(2)");
-      list2.style.backgroundColor = "green";
-      let list3 = document.querySelector(".list-group-item:nth-child(3)");
-      list3.style.display = "none";
+      ///////// creating element and inserting it befor h1 tag using head tag ////////////////////
+      let head = document.querySelector("head");
+      let container1 = head.nextElementSibling.children[0].firstElementChild;
+      let h =
+        head.nextElementSibling.children[0].firstElementChild.firstElementChild;
 
-      // using querySelectorsAll
-      let list2ByQAll = document.querySelectorAll(
-        ".list-group-item:nth-child(2)"
-      );
-      list2ByQAll[0].style.color = "green"; // for one 1 element also queryselectorAll returns array
-      let listItems = document.querySelectorAll(
-        ".list-group-item:nth-child(odd)"
-      );
-      for (let i = 0; i < listItems.length; i++) {
-        listItems[i].style.backgroundColor = "green";
-      }
+      let node1 = document.createElement("div");
+      let textnode1 = document.createTextNode("hello world");
+
+      node1.appendChild(textnode1);
+      container1.insertBefore(node1, h);
+
+      ////////////////////////////////////////////////////////////////////////////////////////
+
+      let div =
+        head.nextElementSibling.children[1].firstElementChild.lastElementChild;
+
+      let items1 =
+        head.nextElementSibling.children[1].firstElementChild.lastElementChild
+          .firstElementChild;
+
+      div.insertBefore(node1, items1);
+
+      //////////////////////////////////////////////////////////////////////////////////////////////////
+      let items = document.querySelector("#items");
+      // parentElement
+      items.parentElement.style.backgroundColor = "#f4f4f4";
+      // lastelementchild
+      items.lastElementChild.textContent = "last element child";
+      // lastchild
+      // //////////////////console.log(items.lastChild); it shows or returns empty space as text
+      // createchild
+      let node = document.createElement("div");
+      let textnode = document.createTextNode("createchild");
+      node.appendChild(textnode);
+      items.appendChild(node);
+      // firstelementchild
+      // items.firstElementChild.textContent = "first element child";
+      // firstchild
+      // //////////////////console.log(items.firstChild);  #text empty space
+      // nextsibling
+      // ///////////////////console.log(items.nextSibling);  text empty space
+      // nextelementsibling
+      // ///////////////////console.log(items.nextElementSibling);  for this items no nextelementsibiling (items is the last element)
+      // previoussibling
+      // ////////////////////console.log(items.previousSibling);  text empty space (same as child)
+      // previouselementsibling
+      items.previousElementSibling.style.color = "green";
+      // createelement
+      // let newDiv = document.createElement("div");
+      // // setAttribute
+      // newDiv.setAttribute("title", "new div");
+      // // createtesxtnode
+      // let newdivtext = document.createTextNode("hello world");
+      // // appendchild
+      // newDiv.appendChild(newdivtext);
+      // let container = document.querySelector("header .container");
+      // let h1 = document.querySelector("header h1");
+      // container.insertBefore(newDiv, h1);
     </script>
   </body>
 </html>
